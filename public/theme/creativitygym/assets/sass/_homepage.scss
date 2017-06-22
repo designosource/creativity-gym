@@ -1,0 +1,49 @@
+body.homepage
+{
+	h2
+	{
+		@include font-size(2);
+	}
+
+	.container
+	{
+		text-align: center;
+	}
+
+	.tmore
+	{
+		text-align: left;
+	}
+}
+
+.mailchimp
+{
+	background-color: rgba(#fdb94a, 1);
+
+	@include linear-gradient(to bottom, #fdb94a, darken(#fdb94a, 10%));
+
+	text-align: center;
+	@include margin(1, 0, 1, 0);
+	@include padding(1, 0.5, 1, 0.5);
+	@include border-top-radius(5px);
+	@include border-bottom-radius(5px);
+	@include border-left-radius(5px);
+	@include border-right-radius(5px);
+
+	form
+	{
+		margin-bottom: 0;
+
+		input
+		{
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+	}
+
+}
+
+.fb-like
+{
+	@include margin(2, 0, 0, 0);
+}

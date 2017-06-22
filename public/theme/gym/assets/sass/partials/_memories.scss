@@ -1,0 +1,64 @@
+@keyframes memories {
+    from {background-position: left;}
+    to {background-position: right;}
+}
+
+.memories {
+    background-image: url(../img/memories.jpg);
+    background-repeat: no-repeat;
+    padding: 50px 0;
+    background-position: left;
+    animation: memories 60s infinite linear;
+    background-size: cover;
+    position: relative;
+}
+
+.memoriesContent {
+    position: relative;
+    text-align: center;
+}
+
+.memoriesContent img {
+    width: 30px;
+    margin: 0 10px;
+}
+
+.socialMediaIcons {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    img:hover {
+        transition: transform .2s ease;
+        transform: scale(1.2);
+    }
+}
+
+.memoriesBackground {
+    background-color: rgba(46, 45, 64, 0.5);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.memories p {
+    font-family: 'Arimo', sans-serif;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: normal;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.memories span {
+    color: #09dbab;
+    font-weight: bold;
+}
+
+.memories a {
+    text-decoration: none;
+}

@@ -1,0 +1,40 @@
+{% include '_header.twig' %}
+<body class="over-ons">
+
+
+    {% include '_nav.twig' %}
+    <div class="heroImg" style="background-image:url({{ record.image|image }})">
+        <div class="pattern"></div>
+        <div class="homeHeroWrapper" >
+            <div class="fixedWidth clearfix">
+                <div class="homeHerotext homeHerotext--center">
+                    <h1>{{ page.title }}</h1>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="aboutContainer">
+        <div class="aboutContainer-border"></div>
+        <div class="aboutDiv aboutDiv--first">
+            <img src="{{ paths.theme }}assets/images/creativity_gym_about_1.jpeg" alt="" class="aboutDiv-img">
+            <div class="aboutDiv-text">
+                <h2 class="aboutDiv-title">The Creativity Gym</h2>
+                {{page.teaser}}
+            </div>
+        </div>
+        <div class="aboutDiv aboutDiv--second">
+            <div class="aboutDiv-text">{{page.body}}</div>
+            <img src="{{ paths.theme }}assets/images/creativity_gym_about_2.jpeg" alt="" class="aboutDiv-img">
+        </div>
+    </div>
+
+
+    {% include '_footercontent.twig' %}
+
+    {% include '_footer.twig' %}
+
+</body>
+</html>

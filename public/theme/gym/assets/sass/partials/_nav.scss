@@ -1,0 +1,104 @@
+.nav {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+    width: 100%;
+    height: 120px;
+    background-color: $lightGrey;
+}
+.nav-logo {
+    position: absolute;
+    top: 23px;
+    left: 20px;
+
+    display: block;
+    width: 100px;
+    height: 100px;
+
+    transition: transform .2s ease;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+.navLinks {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    height: 120px;
+}
+
+.navLinks-item {
+    display: inline-flex;
+    height: 100%;
+    align-items:center;
+    border: 3px solid $lightGrey;
+    box-sizing: border-box; 
+    a {
+        display: inline-block;
+        padding: 2.7em 2em;
+        box-sizing: border-box;
+        height: 100%;
+
+        font-family: 'Bree Serif', serif;
+        font-size: 1.2em;
+        text-decoration: none;
+        color: $dimGrey;
+        transition: color 0.2s linear;
+        &:hover {
+            color: $darkGrey;
+
+        }
+    }
+    &--highlight{
+        border: 3px solid $green !important;
+        background-color: $green;
+        a {
+            color: white;
+        }
+    }
+    &--highlight:hover a{
+        color: #ececec;
+    }
+}
+.current {
+    border-top: 3px solid $green;
+}
+@media only screen and (max-device-width: $bp-smartphone) {
+    .nav {
+        height: 60vh;
+        &-logo {
+            width: 100%;
+            height: 20vh;
+            padding-top: 2vh;
+            position: relative;
+            left: auto;
+        }
+        .nav-logoImg {
+            width: 100%;
+            height: 100%;
+            left: auto;
+            top: 0;
+        }
+        .navLinks {
+            width: 100%;
+            position: relative;
+            height: auto;
+            top: 8vh;
+            &-item {
+                display: block;
+                width: 100%;
+                height: 10vh;
+                a {
+                    padding: 0;
+                    display: flex;
+                    text-align: center;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}

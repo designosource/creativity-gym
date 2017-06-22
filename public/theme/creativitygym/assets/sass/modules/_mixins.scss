@@ -1,0 +1,24 @@
+/* -------------------------------- MIXINS -------------------------------- */
+@mixin font-size($size: 1.6)
+{
+  font-size: ($size * 10) + px; // px for ie8 and below
+  font-size: $size + rem;		 // rem for relative em, relative to root, not multiplying 
+}
+
+@mixin line-height($height: 1.5)
+{
+  line-height: ($height * 10) + px; // px for ie8 and below
+  line-height: $height + rem;		 // rem for relative em, relative to root, not multiplying 
+}
+
+@mixin padding($top, $right, $bottom, $left)
+{
+	padding: ($top * 10) + px ($right * 10) + px ($bottom * 10) + px ($left * 10) + px;
+	padding: $top + rem $right + rem $bottom + rem $left + rem;
+}
+
+@mixin margin($top, $right, $bottom, $left)
+{
+	margin: ($top * 10) + px ($right * 10) + px ($bottom * 10) + px ($left * 10) + px;
+	margin: $top + rem $right + rem $bottom + rem $left + rem;
+}

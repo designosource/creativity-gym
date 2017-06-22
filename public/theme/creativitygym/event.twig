@@ -1,0 +1,78 @@
+{% include '_header.twig' %}
+<body class="eventdetails">
+
+    <div class="container">   
+
+	{% include '_nav.twig' %}
+
+	<div class="page col-lg-12 contentBody">
+		<h1>{{ event.title }}</h1>
+
+		<ul class="eventMeta">
+			{% if event.startdate|date("Y-m-d") < "now"|date("Y-m-d") %}
+
+			<li><em>Dit event vond plaats op {{ event.startdate|localdate("%A %e %B, %Y") }}. Schrijf je snel in om geen events te missen.</em></li>
+
+			{% include '_mailchimp.twig' %}
+
+			{% else %}
+
+			<li><strong>Wanneer:</strong> {{ event.startdate|localdate("%A %e %B, %Y") }}</li>
+			<li><strong>Tijdstip:</strong> Vanaf {{ event.startdate|localdate("%ku%M") }} tot {{ event.enddate|localdate("%ku%M") }}</li>
+
+			{% endif %}
+
+
+		</ul>
+
+		<div class="contentTeaser">{{ event.teaser }}</div>
+
+		{% if event.image != "" %}
+		<img src="{{ event.image|image }}" class="img-responsive" />
+		{% endif %}
+
+		<div class="contentBody eventBody">{{ event.body }}</div>
+
+		<div class="eventImages row">
+			{% for image in event.pictures %}
+			<div class="col-sm-6 col-md-2">
+				<a href="{{ image.filename|image }}" data-lightbox="lightbox">
+				<img class="thumbnail" src="{{ image.filename|thumbnail(400,400)}}" alt="{{ event.title }}" />
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+
+		{% include '_footercontent.twig' %}
+
+	</div>
+
+	
+    </div><!-- /.container -->
+
+{% include '_footer.twig' %}
+
+<script src="{{ paths.theme }}/assets/js/jquery-1.10.2.min.js"></script>
+<script src="{{ paths.theme }}/assets/js/lightbox-2.6.min.js"></script>
+<link rel="stylesheet" href="{{ paths.theme }}/assets/css/lightbox.css">
+
+<script>
+		var lightboxOnResize = function lightboxOnResize() {
+		    if ($(window).width() < 600) {
+		        $('.eventImages a').removeAttr('data-lightbox');
+		        $('.eventImages a').click(function(e) {
+		            if (e.which === 1) {
+		                e.preventDefault();
+		            }
+		        });
+		    } else {
+		        $('.lightboximg a').attr('data-lightbox', 'lightbox');
+		    }
+		}
+	
+		$(document).ready(lightboxOnResize);
+		$(window).resize(lightboxOnResize);
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+$primary: #d5572b;
+$secondary: #5b7782;
+$tertiary: #231f20; // DARK TEXT
+
+@import "config/reset";
+@import "config/general";
+@import "config/colors";
+@import "config/fonts";
+
+@import "about";
+@import "base";
+@import "events";
+@import "eventDetail";
+@import "homepage";
+@import "manifesto";
+@import "page";
+@import "partials/footer";
+@import "partials/eventListItem";
+@import "partials/hero";
+@import "partials/mailchimp";
+@import "partials/map";
+@import "partials/manifestoItem";
+@import "partials/memories";
+@import "partials/latestEvent";
+@import "partials/nav";

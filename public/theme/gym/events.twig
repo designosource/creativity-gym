@@ -1,0 +1,72 @@
+{% setcontent upcomingEvents = 'events' where { enddate: '>NOW' } %}
+{% setcontent pastEvents = 'events' where { enddate: '<NOW' } orderby '-startdate' %}
+
+{% include '_header.twig' %}
+<body>
+
+
+    {% include '_nav.twig' %}
+    <div class="heroImg" style="background-image:url({{ paths.theme }}assets/images/creativity_gym_hero_events.jpg)">
+        <div class="pattern"></div>
+        <div class="homeHeroWrapper" >
+            <div class="fixedWidth clearfix">
+                <div class="homeHerotext homeHerotext--center">
+                    <h1>Events</h1>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+			<h3 class="homepage-subTitle">Events die je niet wil missen</h3>
+
+			<ul class="events-list events-list--present">
+				{% for e in upcomingEvents %}
+                <li class="eventListItem">
+                    <a href="{{ e.link }}" class="eventListItem-imageLink"><img src="{{e.image|image}}" alt="" class="eventListItem-image"></a>
+                    <div class="eventListItem-practical">
+                        {{e.body}}
+                    </div>
+                    <div class="eventListItem-description">
+                        <h4 class="eventListItem-title">{{ e.title }} ({{ e.startdate|localdate("%A %e %B, %Y") }})</h4>
+                        {{ e.teaser }}
+                    </div>
+                </li>
+				{% else %}
+				<li class="manifestoIntro">We rusten even uit na heel wat event-gymnastiek.</li>
+				{% endfor %}
+			</ul>
+
+
+
+
+			<h3 class="homepage-subTitle">Hier had je moeten bij zijn!</h3>
+			<ul class="events-list events-list--past">
+				{% for e in pastEvents %}
+                <li class="eventListItem">
+                    <a href="{{ e.link }}" class="eventListItem-imageLink"><img src="{{e.image|image}}" alt="" class="eventListItem-image"></a>
+                    <div class="eventListItem-description">
+                        <h4 class="eventListItem-title">{{ e.title }} ({{ e.startdate|localdate("%A %e %B, %Y") }})</h4>
+                    </div>
+                </li>
+				{% else %}
+				<li>We zijn pas geopend. Voorbije events komen er snel aan!</li>
+				{% endfor %}
+			</ul>
+
+
+
+		{% include '_footercontent.twig' %}
+
+
+
+
+
+
+{% include '_footer.twig' %}
+
+</body>
+</html>

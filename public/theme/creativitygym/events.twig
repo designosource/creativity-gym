@@ -1,0 +1,50 @@
+{% setcontent upcomingEvents = 'events' where { enddate: '>NOW' } %}
+{% setcontent pastEvents = 'events' where { enddate: '<NOW' } orderby '-startdate' %}
+
+{% include '_header.twig' %}
+<body class="eventdetails">
+
+    <div class="container">   
+
+	{% include '_nav.twig' %}
+
+	<div class="page col-lg-12">
+		<h1>Events</h1>
+		<div class="contentBody">
+
+
+			<h2>Events die je niet wil missen</h2>
+
+			<ul>
+				{% for e in upcomingEvents %}
+				<li><a href="{{ e.link }}">{{ e.title }} ({{ e.startdate|localdate("%A %e %B, %Y") }})</a></li>
+				{% else %}
+				<li>We rusten even uit na heel wat event-gymnastiek.</li>
+				{% endfor %}
+			</ul>
+
+			{% include '_mailchimp.twig' %}
+
+
+			<h2>Hier had je moeten bij zijn!</h2>
+			<ul>
+				{% for e in pastEvents %}
+				<li><a href="{{ e.link }}">{{ e.title }} ({{ e.startdate|localdate("%A %e %B, %Y") }})</a></li>
+				{% else %}
+				<li>We zijn pas geopend. Voorbije events komen er snel aan!</li>
+				{% endfor %}
+			</ul>
+
+		</div>
+
+		{% include '_footercontent.twig' %}
+
+	</div>
+
+	
+    </div><!-- /.container -->
+
+{% include '_footer.twig' %}
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+.btn-primary, .btn-primary:focus, .btn-primary:active
+{
+	background-color: $primary;
+	border-color: darken($primary, 10%);
+
+	&:hover
+	{
+		background-color: darken($secondary, 5%);
+	}
+}
+
+.navbar
+{
+	margin-bottom: 0;
+	border: none;
+	border-radius: 0;
+	background-color: white;
+	background-color: rgba(white, 0.95);
+}

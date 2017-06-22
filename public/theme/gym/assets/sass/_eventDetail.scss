@@ -1,0 +1,52 @@
+.eventDetail {
+    font-family: "Arimo", sans-serif;
+    color: $darkGrey;
+    display: block;
+    width: 85%;
+    margin: 3em auto;
+    border: 3px solid $lightGrey;
+    padding: 2em;
+    box-sizing: border-box;
+    line-height: 1.4em;
+    a {
+        text-decoration: none;
+        color: $green;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    p {
+        padding: .5em 0;
+    }
+    strong {
+        font-weight: 800;
+    }
+    em {
+        font-family: "Arimo", sans-serif;
+        font-style: italic;
+        color: darken($darkGrey, 30%);
+        font-weight: 800;
+    }
+    h1, h2, h3, h4 {
+        font-family: 'Bree Serif', serif;
+        color: $dimDarkGrey;
+    }
+    &-image {
+        width: 100%;
+        height: auto;
+        margin: 3em auto;
+    }
+}
+.eventImages {
+    width: 100%;
+    &-item {
+        display: inline-block;
+    }
+}
+@media only screen and (max-device-width: $bp-smartphone) {
+    .eventDetail {
+        &-meta {
+            margin-bottom: 1em;
+        }
+    }
+}

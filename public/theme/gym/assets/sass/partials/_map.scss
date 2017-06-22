@@ -1,0 +1,42 @@
+#map {
+    height:400px;
+    width:100%;
+}
+
+.gm-style-iw {
+    width: 100%!important;
+    border-top: 6px solid #09dbab;
+    left: 1px!important;
+    top: 0!important;
+}
+
+.gm-style-iw * {
+    display: block;
+    width: 100%;
+    padding: .2em;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.gm-style-iw h4, .gm-style-iw p {
+    margin: 0;
+    padding: 0;
+    color: #9eaeaf;
+}
+
+.gm-style-iw h4 {
+    font-family: 'Bree Serif', serif;
+    font-size: 1.2em;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.gm-style-iw a {
+    color: #09dbab;
+    text-decoration: none;
+    padding: 5px 0;
+}
+.footerBorder {
+    background-color: $green;
+    padding: 0.6em 0;
+}

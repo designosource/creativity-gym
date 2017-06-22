@@ -1,0 +1,52 @@
+.mailchimp-input {
+    width: 70%;
+    display: block;
+    font-size: 1.25em;
+    margin: 0 auto;
+    padding: .35em 0 .35em .5em;
+    box-sizing: border-box;
+    border: none;
+    color: $green;
+    &::-webkit-input-placeholder {
+      color: lighten(grey, 25%);
+    }
+    &::-moz-placeholder {
+      color: lighten(grey, 25%);
+    }
+    &:-ms-input-placeholder {
+      color: lighten(grey, 25%);
+    }
+    &:-moz-placeholder {
+      color: lighten(grey, 25%);
+    }
+    &:focus {
+        outline: none;
+    }
+}
+.mailchimp-btnSubmit {
+    width: 70%;
+    display: block;
+    background: none;
+    border: 3px solid white;
+    color: white;
+    font-size: 1.1em;
+    margin: 20px auto 0;
+    padding: .3em 0;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-weight: bold;
+    &:hover {
+        background-color: white;
+        border: 3px solid white;
+        color: $green;
+        cursor: pointer;
+    }
+}
+@media only screen and (max-device-width: $bp-tablet) {
+    .mailchimp-input{
+        font-size: 0.85em;
+    }
+    .mailchimp-btnSubmit {
+        font-size: .7em;
+    }
+}

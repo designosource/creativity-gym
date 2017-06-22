@@ -1,0 +1,42 @@
+{% include '_header.twig' %}
+{% setcontent home = '/page/homepage' %}
+<body class="homepage">
+
+
+    {% include '_nav.twig' %}
+
+    <div class="heroImg" style="background-image:url({{ home.image|image }})">
+        <div class="pattern"></div>
+        <div class="homeHeroWrapper" >
+            <div class="fixedWidth clearfix">
+                <div class="homeHerotext">
+                    <h1>{{ home.title }}</h1>
+                    <span class="shortLine"></span>
+                    <h2>{{ home.body }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% setcontent latestpages = 'events/latest/2' %}
+    <div class="subtitleContainer">
+        <h3 class="homepage-subTitle">Laatste Events</h3>
+    </div>
+    <div class="homepage-latest">
+        <div class="homepage-latestBorder"></div>
+        {% for latestpage in latestpages %}
+        <div class="latestEvent">
+            <a href="../event/{{ latestpage.slug }}">
+              <img src={{ latestpage.image|image }} class="latestEvent-image">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    {% include '_footercontent.twig' %}
+
+    {% include '_footer.twig' %}
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+$primary: #d5572b;
+$secondary: #5b7782;
+$tertiary: #231f20; // DARK TEXT
+
+@import "modules/normalize";
+@import 'bourbon/bourbon';
+@import 'modules/mixins';
+@import "neat/neat";
+@import "base";
+@import "homepage";
+@import "page";
+@import "events";
+@import "partials/nav";
+@import "partials/footer";
+@import "modules/mediaqueries";
+@import "modules/bootstrapoverrides";

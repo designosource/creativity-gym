@@ -1,0 +1,14 @@
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+	.navbar-brand
+	{
+		display: none;
+	}
+}
+
+@media (max-width: 480px) { 
+	html
+	{
+		font-size: 50%;
+	}	
+}

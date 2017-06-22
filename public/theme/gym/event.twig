@@ -1,0 +1,85 @@
+{% include '_header.twig' %}
+<body>
+
+    {% include '_nav.twig' %}
+    <div class="heroImg" style="background-image:url({{ paths.theme }}assets/images/creativity_gym_hero_events_details.jpg)">
+        <div class="pattern"></div>
+        <div class="homeHeroWrapper" >
+            <div class="fixedWidth clearfix">
+                <div class="homeHerotext homeHerotext--center">
+                    <h1>{{ event.title }}</h1>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="eventDetail">
+		<ul class="eventDetail-meta">
+			{% if event.startdate|date("Y-m-d") < "now"|date("Y-m-d") %}
+
+			<li><em>Dit event vond plaats op {{ event.startdate|localdate("%A %e %B, %Y") }}. Schrijf je snel in om geen events te missen.</em></li>
+
+
+
+			{% else %}
+
+			<li><strong>Wanneer:</strong> {{ event.startdate|localdate("%A %e %B, %Y") }}</li>
+			<li><strong>Tijdstip:</strong> Vanaf {{ event.startdate|localdate("%ku%M") }} tot {{ event.enddate|localdate("%ku%M") }}</li>
+
+			{% endif %}
+
+
+		</ul>
+
+		<div class="eventDetail-teaser">{{ event.teaser }}</div>
+
+		{% if event.image != "" %}
+		<img src="{{ event.image|image }}" class="eventDetail-image" />
+		{% endif %}
+
+		<div class="eventDetail-body">{{ event.body }}</div>
+
+		<div class="eventImages row">
+			{% for image in event.pictures %}
+			<div class="eventImages-item">
+				<a href="{{ image.filename|image }}" data-lightbox="lightbox">
+				<img class="thumbnail" src="{{ image.filename|thumbnail(250,250)}}" alt="{{ event.title }}" />
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+    </div>
+
+		{% include '_footercontent.twig' %}
+
+
+
+
+
+{% include '_footer.twig' %}
+
+<script src="{{ paths.theme }}/assets/js/jquery-1.10.2.min.js"></script>
+<script src="{{ paths.theme }}/assets/js/lightbox-2.6.min.js"></script>
+<link rel="stylesheet" href="{{ paths.theme }}/assets/css/lightbox.css">
+
+<script>
+		var lightboxOnResize = function lightboxOnResize() {
+		    if ($(window).width() < 600) {
+		        $('.eventImages a').removeAttr('data-lightbox');
+		        $('.eventImages a').click(function(e) {
+		            if (e.which === 1) {
+		                e.preventDefault();
+		            }
+		        });
+		    } else {
+		        $('.lightboximg a').attr('data-lightbox', 'lightbox');
+		    }
+		}
+
+		$(document).ready(lightboxOnResize);
+		$(window).resize(lightboxOnResize);
+	</script>
+
+</body>
+</html>

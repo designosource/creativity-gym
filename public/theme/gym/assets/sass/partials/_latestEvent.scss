@@ -1,0 +1,19 @@
+.latestEvent {
+    display: block;
+    width: 45%;
+    height: 200px;
+    &-image {
+        width: 100%;
+        height: auto;
+    }
+}
+@media only screen and (max-device-width: $bp-tablet) {
+    .latestEvent {
+        height: 130px;
+    }
+}
+@media only screen and (max-device-width: $bp-smartphone){
+    .latestEvent {
+        width: 100%;
+    }
+}

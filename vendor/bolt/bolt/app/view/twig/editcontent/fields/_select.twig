@@ -1,0 +1,98 @@
+{#=== OPTIONS ========================================================================================================#}
+
+{% set option = {
+    info:      field.info|default(''),
+    label:     field.label,
+    multiple:  (field.multiple is defined and field.multiple),
+    sortable:  (field.sortable is defined and field.sortable),
+    required:  field.required|default(false),
+    values:    field.values|default([]),
+    default:   field.default|default(null),
+} %}
+
+{#=== INIT ===========================================================================================================#}
+
+{% if option.values is iterable %}
+    {% set values = option.values %}
+{% else %}
+    {% set lookuptype = option.values|split('/')|slice(0,1)|first %}
+    {% set lookupfield = option.values|split('/')|slice(1,1)|first %}
+    {% if ',' in lookupfield %}
+        {% set lookupfieldlist = lookupfield|split(',') %}
+    {% endif %}
+    {% set sortingorder = field.sort|default(lookupfieldlist|default([])|first)|default(lookupfield)|default('id') %}
+    {% set querylimit = field.limit|default(500) %}
+    {% set wherefilter = field.filter|default({}) %}
+    {% setcontent lookups = lookuptype where wherefilter order sortingorder nohydrate limit querylimit %}
+    {% set valuefield = lookupfieldlist|default(lookupfield)|default('id') %}
+    {% set values = lookups|selectfield(valuefield, option.multiple, field.keys|default('id')) %}
+{% endif %}
+
+{# Get the current selection. Either a single value, or an array. #}
+{% set selection = context.content.get(contentkey)|default(option.default) %}
+{% if selection is not iterable %}
+    {% set selection = [ selection ] %}
+{% endif %}
+
+{# if we have (sorted) options present already, make sure their order is
+   maintained. We do this by first selecting the current values, and then
+   merging that with the entire array of values. See #6332. #}
+{% if option.sortable %}
+    {% set leadingvalues = [] %}
+    {% for key, sel in selection %}
+        {% for value_key, value_sel in values if value_key == sel %}
+            {% set leadingvalues = leadingvalues|merge({ (value_key): value_sel}) %}
+        {% endfor %}
+    {% endfor %}
+    {% set values = unique(leadingvalues, values) %}
+{% endif %}
+
+{# If the current selection contains an existing id, we must use _only_ the id, and not accept a fallback. #}
+{% set onlyids = selection|first in values|keys %}
+
+{# Build the select options array #}
+{% set options = [] %}
+{% for id, value in values %}
+    {% set is_array = (value is iterable and (value | length) > 1) %}
+    {% set options = options|merge([{
+        value:     id,
+        text:      is_array ? value[0:]|join(' / ') : value,
+        selected:  id in selection or (not onlyids and (is_array ? value[0] : value) in selection),
+    }]) %}
+{% endfor %}
+
+{# BUIC options #}
+{% set buic_opt_select = {
+    'all':       option.multiple,
+    'clear':     true,
+    'id':        key,
+    'multiple':  option.multiple,
+    'name':      option.multiple ? name ~ '[]' : name,
+    'options':   options,
+    'required':  option.required,
+} %}
+
+{#=== FIELDSET =======================================================================================================#}
+
+{% extends '@bolt/_base/_fieldset.twig' %}
+
+{% block fieldset_type 'select' %}
+{% block fieldset_widget 'fieldSelect' %}
+
+{% set fieldset_conf = {
+    autocomplete: field.autocomplete|default(false),
+    sortable: field.sortable|default(false)
+} %}
+
+{% block fieldset_label_text  labelkey %}
+{% block fieldset_label_info  option.info %}
+{% block fieldset_label_class 'col-sm-3' %}
+{% block fieldset_label_for   key %}
+
+{% block fieldset_controls %}
+    {% from '@bolt/_buic/_select.twig' import buic_select %}
+
+    <div class="col-sm-9{{ option.sortable ? ' sortable-select2-container' }}">
+        {{ buic_select(buic_opt_select) }}
+    </div>
+{% endblock fieldset_controls %}

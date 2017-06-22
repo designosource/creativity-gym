@@ -1,0 +1,85 @@
+.heroImg {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.homeHeroWrapper {
+    background-color: rgba(46, 45, 64, 0.5);
+    padding: 8em 3em;
+    box-sizing: border-box;
+}
+
+.homeHerotext {
+    position: relative;
+    color: #fff;
+    z-index: 2;
+    text-align: left;
+    width: 50%;
+    &--center {
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+.homeHerotext h1 {
+    font-family: 'Bree Serif', serif;
+    font-size: 4em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.homeHerotext span {
+    font-weight: bold;
+}
+
+.shortLine {
+    border-bottom: 3px solid #09dbab;
+    padding: 0 20px;
+}
+
+.heroImg h2 {
+    font-family: 'Arimo', sans-serif;
+    font-weight: normal;
+    font-size: 2.5em;
+    margin-top:  30px;
+}
+
+.pattern {
+    background-color: rgba(0, 0, 0, 0.3);
+    background: url(../img/overlay_pattern.png);
+    background-repeat: repeat;
+    background-size: 4px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+@media only screen and (max-device-width: $bp-tablet){
+    .homeHerotext {
+        width: 85%;
+        h1 {
+            font-size: 3.5em;
+        }
+        h2 {
+            font-size: 2em;
+        }
+    }
+}
+@media only screen and (max-device-width: $bp-smartphone){
+    .homeHeroWrapper {
+        padding: 1.5em 1.5em;
+    }
+    .homeHerotext {
+        width: 100%;
+        text-align: center;
+        h1 {
+            font-size: 2.5em;
+        }
+        h2 {
+            font-size: 1.5em;
+        }
+    }
+}

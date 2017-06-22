@@ -1,0 +1,11 @@
+{% setcontent about = 'page/over-ons' %}
+{% setcontent manifesto = 'page/manifesto' %}
+<nav class="nav" role="navigation">
+
+    <a class="nav-logo" href="/page/homepage"><img src="{{ paths.theme }}/assets/images/logo_gym.svg" alt="" class="nav-logoImg"></a>
+    <ul class="navLinks">
+        <li class="navLinks-item {% if about|current %}current{% endif %}"><a href="/page/over-ons">Over de gym</a></li>
+        <li class="navLinks-item {% if manifesto|current %}current{% endif %}"><a href="/page/manifesto">Manifesto</a></li>
+        <li class="navLinks-item navLinks-item--highlight"><a href="/events">Events</a></li>
+    </ul>
+</nav>

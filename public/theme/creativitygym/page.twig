@@ -1,0 +1,30 @@
+{% include '_header.twig' %}
+<body>
+
+
+
+
+    <div class="container">   
+
+	{% include '_nav.twig' %}
+
+	<div class="page col-lg-12">
+		<h1>{{ page.title }}</h1>
+
+		<div class="contentTeaser">{{ page.teaser }}</div>
+
+		<img src="{{ page.image|image }}" class="img-responsive" />
+
+		<div class="contentBody">{{ page.body }}</div>
+
+		{% include '_footercontent.twig' %}
+
+	</div>
+
+	
+    </div><!-- /.container -->
+
+{% include '_footer.twig' %}
+
+</body>
+</html>

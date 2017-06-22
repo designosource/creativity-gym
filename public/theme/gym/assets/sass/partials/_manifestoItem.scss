@@ -1,0 +1,39 @@
+.manifestoItem {
+    &-number {
+        margin-top: .2em;
+        display: block;
+        font-size: 1.1em;
+        line-height: 1.4em;
+        width: 1.4em;
+        height: 1.4em;
+        background-color: $green;
+        text-align: center;
+        color: white;
+        font-family: 'Arimo', sans-serif;
+        border-radius: 50%;
+    }
+    &-title {
+        font-family: 'Bree Serif', serif;
+        color: $dimGrey;
+        font-size: 1.4em;
+        line-height: 1.6em;
+        padding-bottom: .25em;
+    }
+    &-text {
+        font-family: 'Arimo', sans-serif;
+        color: $dimDarkGrey;
+        font-size: 1em;
+        line-height: 1.4em;
+        a {
+            color: $green;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+                font-weight: bold;
+            }
+        }
+    }
+}
+@media only screen and (max-device-width: $bp-smartphone){
+
+}

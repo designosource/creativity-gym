@@ -1,0 +1,90 @@
+.manifestoIntro {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Arimo', sans-serif;
+    font-size: 1.4em;
+    line-height: 1.4em;
+    color: $dimGrey;
+    padding: 2em 0;
+    &-text {
+        display: block;
+        padding-top: 1em;
+    }
+}
+.manifesto {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    padding: 6em;
+    &-item {
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+        margin-top: -3em;
+        &--odd {
+            padding-right: 60%;
+            text-align: right;
+            .manifestoItem-number {
+                position: absolute;
+                right: 55%;
+            }
+        }
+        &--even {
+            text-align: left;
+            padding-left: 60%;
+            .manifestoItem-number {
+                position: absolute;
+                left: 55%;
+            }
+        }
+    }
+    &-line {
+        display: block;
+        width: 3px;
+        height: 90%;
+        position: absolute;
+        background-color: $green;
+        z-index: -1;
+        top: 4em;
+        &--left {
+            left: 55.15%;
+        }
+        &--right {
+            right: 55.15%;
+        }
+    }
+}
+@media only screen and (max-device-width: $bp-tablet) {
+    .manifesto {
+        width: 75%;
+        box-sizing: border-box;
+        padding: 6em 0;
+    }
+}
+@media only screen and (max-device-width: $bp-smartphone) {
+    .manifestoIntro {
+        width: 85%;
+    }
+    .manifesto {
+        width: 85%;
+        &-line {
+            display: none;
+        }
+        &-item {
+            position: relative;
+            text-align: center;
+            width: 80%;
+            padding: 0;
+            margin-top: 0;
+            margin: 0 auto 2.5em;
+            .manifestoItem-number {
+                position: relative;
+                left: auto;
+                right: auto;
+                margin: 0 auto;
+            }
+        }
+    }
+}
