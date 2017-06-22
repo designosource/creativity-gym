@@ -7,12 +7,12 @@
         height: auto;
     }
 }
-@media only screen and (max-device-width: $bp-tablet) {
+@media (max-width: $bp-tablet) {
     .latestEvent {
         height: 130px;
     }
 }
-@media only screen and (max-device-width: $bp-smartphone){
+@media (max-width: $bp-smartphone){
     .latestEvent {
         width: 100%;
     }

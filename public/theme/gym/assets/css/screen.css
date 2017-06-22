@@ -89,9 +89,9 @@ p {
       text-decoration: none; }
       .aboutDiv-text a:hover {
         font-weight: bold; }
-  .aboutDiv-image {
+  .aboutDiv-img {
     width: 40%;
-    height: auto; }
+    object-fit: contain; }
 
 .aboutDiv--second .aboutDiv-text {
   padding: 0 3% 0 5%; }
@@ -101,7 +101,7 @@ p {
   padding-bottom: 1em;
   line-height: 1.4em; }
 
-@media only screen and (max-device-width: 770px) {
+@media (max-width: 770px) {
   .aboutDiv {
     display: block;
     padding: 0; }
@@ -113,7 +113,7 @@ p {
       width: 85%;
       padding: 2em 7.5% 0 !important;
       margin: 0 auto; } }
-@media only screen and (max-device-width: 550px) {
+@media (max-width: 550px) {
   .aboutContainer {
     width: 100%;
     margin-bottom: 0;
@@ -167,7 +167,7 @@ p {
   .eventImages-item {
     display: inline-block; }
 
-@media only screen and (max-device-width: 550px) {
+@media (max-width: 550px) {
   .eventDetail-meta {
     margin-bottom: 1em; } }
 .homepage-subTitle {
@@ -214,7 +214,7 @@ p {
   height: 90%;
   border: 4px solid #ececec; }
 
-@media only screen and (max-device-width: 550px) {
+@media (max-width: 550px) {
   .homepage-subTitle {
     font-size: 2em; }
 
@@ -269,12 +269,12 @@ p {
     .manifesto-line--right {
       right: 55.15%; }
 
-@media only screen and (max-device-width: 770px) {
+@media (max-width: 770px) {
   .manifesto {
     width: 75%;
     box-sizing: border-box;
     padding: 6em 0; } }
-@media only screen and (max-device-width: 550px) {
+@media (max-width: 550px) {
   .manifestoIntro {
     width: 85%; }
 
@@ -325,13 +325,13 @@ footer {
   flex-direction: column;
   background-color: #09dbab; }
 
-@media only screen and (max-device-width: 770px) {
+@media (max-width: 770px) {
   .footer-partnerLogos {
     height: 120px; }
 
   .partnerLogo-item {
     max-width: 90px; } }
-@media only screen and (max-device-width: 550px) {
+@media (max-width: 550px) {
   footer {
     flex-wrap: wrap; }
 
@@ -419,7 +419,7 @@ footer {
       color: white;
       z-index: 3; }
 
-@media only screen and (max-device-width: 550px) {
+@media (max-width: 550px) {
   .eventListItem-title {
     font-size: .75em; }
 
@@ -489,14 +489,14 @@ footer {
   width: 100%;
   z-index: 1; }
 
-@media only screen and (max-device-width: 770px) {
+@media (max-width: 770px) {
   .homeHerotext {
     width: 85%; }
     .homeHerotext h1 {
       font-size: 3.5em; }
     .homeHerotext h2 {
       font-size: 2em; } }
-@media only screen and (max-device-width: 550px) {
+@media (max-width: 550px) {
   .homeHeroWrapper {
     padding: 1.5em 1.5em; }
 
@@ -545,7 +545,7 @@ footer {
     color: #09dbab;
     cursor: pointer; }
 
-@media only screen and (max-device-width: 770px) {
+@media (max-width: 770px) {
   .mailchimp-input {
     font-size: 0.85em; }
 
@@ -682,10 +682,10 @@ footer {
     width: 100%;
     height: auto; }
 
-@media only screen and (max-device-width: 770px) {
+@media (max-width: 770px) {
   .latestEvent {
     height: 130px; } }
-@media only screen and (max-device-width: 550px) {
+@media (max-width: 550px) {
   .latestEvent {
     width: 100%; } }
 .nav {
@@ -744,7 +744,7 @@ footer {
 .current {
   border-top: 3px solid #09dbab; }
 
-@media only screen and (max-device-width: 550px) {
+@media (max-width: 550px) {
   .nav {
     height: 60vh; }
     .nav-logo {

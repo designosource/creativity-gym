@@ -56,14 +56,14 @@
         }
     }
 }
-@media only screen and (max-device-width: $bp-tablet) {
+@media (max-width: $bp-tablet) {
     .manifesto {
         width: 75%;
         box-sizing: border-box;
         padding: 6em 0;
     }
 }
-@media only screen and (max-device-width: $bp-smartphone) {
+@media (max-width: $bp-smartphone) {
     .manifestoIntro {
         width: 85%;
     }

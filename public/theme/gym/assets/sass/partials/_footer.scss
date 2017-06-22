@@ -34,7 +34,7 @@ footer {
     flex-direction: column;
     background-color: $green;
 }
-@media only screen and (max-device-width: $bp-tablet) {
+@media (max-width: $bp-tablet) {
     .footer-partnerLogos {
         height: 120px;
     }
@@ -42,7 +42,7 @@ footer {
         max-width: 90px;
     }
 }
-@media only screen and (max-device-width: $bp-smartphone){
+@media (max-width: $bp-smartphone){
     footer {
         flex-wrap: wrap;
     }
@@ -59,6 +59,6 @@ footer {
         width: 60%;
         max-height: none;
         max-width: none;
-        margin: 5vh auto; 
+        margin: 5vh auto;
     }
 }

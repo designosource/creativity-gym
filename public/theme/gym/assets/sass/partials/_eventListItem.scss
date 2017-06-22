@@ -82,7 +82,7 @@
         }
     }
 }
-@media only screen and (max-device-width: $bp-smartphone){
+@media (max-width: $bp-smartphone){
     .eventListItem-title {
         font-size: .75em;
     }

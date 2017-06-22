@@ -43,7 +43,7 @@
     height: 90%;
     border: 4px solid $lightGrey;
 }
-@media only screen and (max-device-width: $bp-smartphone) {
+@media (max-width: $bp-smartphone) {
     .homepage-subTitle {
         font-size: 2em;
     }

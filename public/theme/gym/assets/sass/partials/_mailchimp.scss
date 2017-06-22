@@ -42,7 +42,7 @@
         cursor: pointer;
     }
 }
-@media only screen and (max-device-width: $bp-tablet) {
+@media (max-width: $bp-tablet) {
     .mailchimp-input{
         font-size: 0.85em;
     }
